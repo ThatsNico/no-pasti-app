@@ -47,3 +47,5 @@ next-env.d.ts
 "*.json" 
 "*.json" 
 "no-pasti-app-*.json" 
+"*.json" 
+"no-pasti-app-*.json" 
