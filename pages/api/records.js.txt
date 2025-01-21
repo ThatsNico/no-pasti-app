@@ -1,0 +1,26 @@
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    try {
+      const record = await prisma.record.create({
+        data: {
+          data: new Date(req.body.data),
+          user: {
+            create: {
+              username: `${req.body.nome}.${req.body.cognome}`.toLowerCase(),
+              password: 'default', // In produzione, usa una password sicura
+              nome: req.body.nome,
+              cognome: req.body.cognome
+            }
+          }
+        },
+      });
+      res.status(200).json(record);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+}
