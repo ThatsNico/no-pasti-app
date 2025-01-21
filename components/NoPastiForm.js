@@ -28,7 +28,6 @@ const NoPastiForm = () => {
 
       if (response.ok) {
         alert('Dati salvati con successo!');
-        // Resetta il form dopo il salvataggio
         setFormData({
           nome: '',
           cognome: '',
@@ -44,46 +43,64 @@ const NoPastiForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Form No Pasti</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Nome:</label>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center p-4">
+      <div className="bg-white w-full max-w-md mx-auto rounded-xl shadow-2xl overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+          <h2 className="text-3xl font-extrabold text-white text-center">Form No Pasti</h2>
+        </div>
+        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <div className="space-y-2">
+            <label className="block text-gray-700 font-semibold">Nome</label>
             <input 
               type="text" 
               name="nome"
               value={formData.nome}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Inserisci il tuo nome"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 
+                         transition duration-300 ease-in-out 
+                         hover:border-blue-400"
             />
           </div>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Cognome:</label>
+          <div className="space-y-2">
+            <label className="block text-gray-700 font-semibold">Cognome</label>
             <input 
               type="text" 
               name="cognome"
               value={formData.cognome}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Inserisci il tuo cognome"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 
+                         transition duration-300 ease-in-out 
+                         hover:border-blue-400"
             />
           </div>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Data:</label>
+          <div className="space-y-2">
+            <label className="block text-gray-700 font-semibold">Data</label>
             <input 
               type="date"
               name="data"
               value={formData.data}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 
+                         transition duration-300 ease-in-out 
+                         hover:border-blue-400"
             />
           </div>
           <button 
             type="submit" 
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 
+                       text-white py-3 rounded-lg 
+                       hover:from-blue-600 hover:to-purple-700 
+                       transition duration-300 ease-in-out 
+                       transform hover:-translate-y-1 hover:scale-105 
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Salva Dati
           </button>
