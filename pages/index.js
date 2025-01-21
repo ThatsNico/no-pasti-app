@@ -1,4 +1,4 @@
-import NoPastiForm from '../components/NoPastiForm.js'
+import NoPastiForm from '../components/NoPastiForm'
 
 export default function Home() {
   return (
