@@ -45,3 +45,5 @@ next-env.d.ts
 "no-pasti-app-66cae596e674.json" 
 "no-pasti-app-66cae596e674.json" 
 "*.json" 
+"*.json" 
+"no-pasti-app-*.json" 
