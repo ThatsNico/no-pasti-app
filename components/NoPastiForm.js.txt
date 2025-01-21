@@ -7,64 +7,20 @@ const NoPastiForm = () => {
     data: new Date().toISOString().split('T')[0]
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('/api/records', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-      if (res.ok) {
-        alert('Record salvato con successo!');
-        setFormData({
-          ...formData,
-          data: new Date().toISOString().split('T')[0]
-        });
-      }
-    } catch (error) {
-      console.error('Errore:', error);
-    }
-  };
-
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
-      <div className="mb-4">
-        <label className="block mb-2">Nome:</label>
-        <input
-          type="text"
-          value={formData.nome}
-          onChange={(e) => setFormData({...formData, nome: e.target.value})}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block mb-2">Cognome:</label>
-        <input
-          type="text"
-          value={formData.cognome}
-          onChange={(e) => setFormData({...formData, cognome: e.target.value})}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block mb-2">Data:</label>
-        <input
-          type="date"
-          value={formData.data}
-          onChange={(e) => setFormData({...formData, data: e.target.value})}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-      <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
-        Invia
-      </button>
-    </form>
+    <div>
+      <h2>Form No Pasti</h2>
+      <form>
+        <div>
+          <label>Nome:</label>
+          <input type="text" />
+        </div>
+        <div>
+          <label>Cognome:</label>
+          <input type="text" />
+        </div>
+      </form>
+    </div>
   );
 };
 
